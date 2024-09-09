@@ -1,62 +1,72 @@
-# `certificate_verification`
+# Certificate Verification System
 
-Welcome to your new `certificate_verification` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+## Overview
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+The Certificate Verification System is a decentralized application (dApp) built on the Internet Computer platform. It allows educational institutions to issue digital certificates and enables anyone to verify the authenticity of these certificates. This system leverages blockchain technology to ensure the integrity and immutability of certificate records.
 
-To learn more before you start working with `certificate_verification`, see the following documentation available online:
+## Features
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Rust Canister Development Guide](https://internetcomputer.org/docs/current/developer-docs/backend/rust/)
-- [ic-cdk](https://docs.rs/ic-cdk)
-- [ic-cdk-macros](https://docs.rs/ic-cdk-macros)
-- [Candid Introduction](https://internetcomputer.org/docs/current/developer-docs/backend/candid/)
+- **Certificate Issuance**: Educational institutions can issue digital certificates with unique identifiers.
+- **Certificate Verification**: Anyone can verify the authenticity of a certificate using its unique identifier.
+- **Decentralized Storage**: All certificate data is stored securely on the Internet Computer blockchain.
+- **Tamper-proof Records**: Once issued, certificates cannot be altered, ensuring their integrity.
+- **User-friendly Interface**: Easy-to-use web interface for both certificate issuance and verification.
 
-If you want to start working on your project right away, you might want to try the following commands:
+## Technologies Used
 
-```bash
-cd certificate_verification/
-dfx help
-dfx canister --help
-```
+- Frontend: React.js
+- Backend: Rust (Canister Smart Contract)
+- Blockchain: Internet Computer Protocol (ICP)
+- Build Tool: Webpack
+- Package Manager: npm
 
-## Running the project locally
+## Prerequisites
 
-If you want to test your project locally, you can use the following commands:
+Before you begin, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) 
+- [npm](https://www.npmjs.com/) 
+- [dfx](https://internetcomputer.org/docs/current/developer-tools/dfx-intro) (Internet Computer SDK)
+- [Rust](https://www.rust-lang.org/tools/install)
 
-```bash
-# Starts the replica, running in the background
-dfx start --background
+## Setup Instructions
 
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
-```
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/certificate-verification-system.git
+   cd certificate-verification-system
+   ```
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-If you have made changes to your backend canister, you can generate a new candid interface with
+3. Start the local Internet Computer replica:
+   ```
+   dfx start --background
+   ```
 
-```bash
-npm run generate
-```
+4. Deploy the canisters:
+   ```
+   dfx deploy
+   ```
 
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
+5. Build the frontend:
+   ```
+   npm run build
+   ```
 
-If you are making frontend changes, you can start a development server with
+### Issuing a Certificate
 
-```bash
-npm start
-```
+1. Navigate to the "Issue Certificate" section.
+2. Fill in the required details (student name, course name, issue date, etc.).
+3. Click on "Issue Certificate" to create a new certificate.
+4. Note down the unique identifier provided for the certificate.
 
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
+### Verifying a Certificate
 
-### Note on frontend environment variables
+1. Go to the "Verify Certificate" section.
+2. Enter the unique identifier of the certificate you wish to verify.
+3. Click on "Verify" to check the authenticity of the certificate.
 
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
 
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
-# Certificate-verification-using-ICP
