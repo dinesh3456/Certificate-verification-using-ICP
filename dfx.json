@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "certificate_verification_backend": {
+      "candid": "src/certificate_verification_backend/certificate_verification_backend.did",
+      "package": "certificate_verification_backend",
+      "type": "rust"
+    },
+    "certificate_verification_frontend": {
+      "dependencies": [
+        "certificate_verification_backend"
+      ],
+      "source": [
+        "src/certificate_verification_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "certificate_verification_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
