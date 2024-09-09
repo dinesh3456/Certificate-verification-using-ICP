@@ -1,3 +1,13 @@
+type Certificate = record {
+    id : text;
+    student_name : text;
+    course_name : text;
+    issue_date : text;
+    issuer : text;
+};
+
 service : {
-    "greet": (text) -> (text) query;
+    issue_certificate : (Certificate) -> (text);
+    verify_certificate : (text) -> (opt Certificate) query;
+    get_all_certificates : () -> (vec Certificate) query;
 }

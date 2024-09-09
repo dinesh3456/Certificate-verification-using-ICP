@@ -1,27 +1,20 @@
 {
   "canisters": {
     "certificate_verification_backend": {
-      "candid": "src/certificate_verification_backend/certificate_verification_backend.did",
+      "type": "rust",
       "package": "certificate_verification_backend",
-      "type": "rust"
+      "candid": "src/certificate_verification_backend/certificate_verification_backend.did"
     },
     "certificate_verification_frontend": {
-      "dependencies": [
-        "certificate_verification_backend"
-      ],
-      "source": [
-        "src/certificate_verification_frontend/dist"
-      ],
       "type": "assets",
-      "workspace": "certificate_verification_frontend"
+      "source": ["src/certificate_verification_frontend/dist"],
+      "dependencies": ["certificate_verification_backend"]
     }
   },
   "defaults": {
     "build": {
-      "args": "",
       "packtool": ""
     }
   },
-  "output_env_file": ".env",
   "version": 1
 }
